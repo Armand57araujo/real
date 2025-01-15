@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+tensorflow
+scikit-learn
+joblib
+Pillow
+openai
+numpy
+pandas
+fastapi
+uvicorn
+joblib
+tensorflow
+numpy
+scikit-learn
+pillow
+python-multipart

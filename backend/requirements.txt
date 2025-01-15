@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+tensorflow
+scikit-learn
+joblib
+Pillow
+
+fastapi
+uvicorn
+joblib
+tensorflow
+numpy
+scikit-learn
+pillow
+python-multipart
