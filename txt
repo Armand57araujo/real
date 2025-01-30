@@ -1,0 +1,30 @@
+import time
+from ratelimit import limits, sleep_and_retry
+
+@sleep_and_retry
+@limits(calls=50, period=3600)  # Limiting to 50 calls per hour
+def generate_dalle_image(prompt, api_key):
+    """
+    Generate an image using DALL-E based on the given prompt, with rate limiting
+    
+    Args:
+        prompt (str): The text prompt to generate the image from
+        api_key (str): OpenAI API key
+        
+    Returns:
+        str: URL of the generated image, or None if generation fails
+    """
+    try:
+        client = OpenAI(api_key=api_key)
+        
+        response = client.images.generate(
+            model="dall-e-2",  # Changed to DALL-E 2 for lower cost
+            prompt=prompt,
+            size="1024x1024",
+            n=1,
+        )
+        
+        return response.data[0].url
+    except Exception as e:
+        print(f"Error generating DALL-E image: {str(e)}")
+        return None  # Return None instead of raising an exception for graceful failure
